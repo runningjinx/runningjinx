@@ -20,28 +20,36 @@
     var CONFIG = {"hostname":"runningjinx.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="张大勇">
-<meta property="og:url" content="https://runningjinx.github.io/index.html">
+  <meta name="description" content="统一的 UI 组件能保持界面风格统一，提高开发效率。例如，React 的 ant 组件库，Vue 的 elementUI。那如何开发一个属于自己的组件库呢？ 本文分为三个部分：  组件库的色彩知识 组件实践之开发一个 Button 组件 总结  组件库的色彩知识？之前听过一句话，喜欢蓝色就用 React 开发，喜欢绿色就用 Vue。其实这是在说，每个组件库都有一套它自己的色彩。在开发一套组件库前，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何开发一个 React 的 UI 组件库之 Button 组件实践？">
+<meta property="og:url" content="https://runningjinx.github.io/2020/11/16/reactui/index.html">
 <meta property="og:site_name" content="张大勇">
+<meta property="og:description" content="统一的 UI 组件能保持界面风格统一，提高开发效率。例如，React 的 ant 组件库，Vue 的 elementUI。那如何开发一个属于自己的组件库呢？ 本文分为三个部分：  组件库的色彩知识 组件实践之开发一个 Button 组件 总结  组件库的色彩知识？之前听过一句话，喜欢蓝色就用 React 开发，喜欢绿色就用 Vue。其实这是在说，每个组件库都有一套它自己的色彩。在开发一套组件库前，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.z4a.net/images/2020/11/16/zhongse.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/11/16/cole.jpg">
+<meta property="og:image" content="https://www.z4a.net/images/2020/11/16/buttons.png">
+<meta property="article:published_time" content="2020-11-16T13:00:30.525Z">
+<meta property="article:modified_time" content="2020-11-16T13:22:37.943Z">
 <meta property="article:author" content="张大勇">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.z4a.net/images/2020/11/16/zhongse.png">
 
-<link rel="canonical" href="https://runningjinx.github.io/">
+<link rel="canonical" href="https://runningjinx.github.io/2020/11/16/reactui/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>张大勇</title>
+  <title>如何开发一个 React 的 UI 组件库之 Button 组件实践？ | 张大勇</title>
   
 
 
@@ -155,9 +163,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -173,10 +182,9 @@
       <meta itemprop="name" content="张大勇">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/16/reactui/" class="post-title-link" itemprop="url">如何开发一个 React 的 UI 组件库之 Button 组件实践？</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          如何开发一个 React 的 UI 组件库之 Button 组件实践？
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -200,7 +208,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>统一的 UI 组件能保持界面风格统一，提高开发效率。例如，React 的 ant 组件库，Vue 的 elementUI。那如何开发一个属于自己的组件库呢？</p>
+        <p>统一的 UI 组件能保持界面风格统一，提高开发效率。例如，React 的 ant 组件库，Vue 的 elementUI。那如何开发一个属于自己的组件库呢？</p>
 <p>本文分为三个部分：</p>
 <ol>
 <li>组件库的色彩知识</li>
@@ -249,190 +257,30 @@
 <li>根据 props，封装组件内部的逻辑</li>
 </ol>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://runningjinx.github.io/2020/09/21/batchUpdate/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="张大勇">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张大勇">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/21/batchUpdate/" class="post-title-link" itemprop="url">React的batchUpdate机制和事务机制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-21 23:38:43" itemprop="dateCreated datePublished" datetime="2020-09-21T23:38:43+08:00">2020-09-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-22 01:27:54" itemprop="dateModified" datetime="2020-09-22T01:27:54+08:00">2020-09-22</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="this-setState-背后的-batchUpdate-机制和-transtion-机制"><a href="#this-setState-背后的-batchUpdate-机制和-transtion-机制" class="headerlink" title="this.setState 背后的 batchUpdate 机制和 transtion 机制"></a>this.setState 背后的 batchUpdate 机制和 transtion 机制</h2><p>本文讲述了 React 的 setState 同步还是异步的原理。内容主要分为以下三部分：</p>
-<ol>
-<li>setState 主流程</li>
-<li>batchUpdate 机制</li>
-<li>transtion 机制</li>
-</ol>
-<h3 id="setState-主流程"><a href="#setState-主流程" class="headerlink" title="setState 主流程"></a>setState 主流程</h3><p>熟悉 React 的都知道 this.setState 有时是异步的（普通使用），有时是同步的（setTimeout、DOM 事件）。如下所示，this.setState 是一个异步流程，console.log 无法打印出最新的 state 的值。</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">add = () =&gt; &#123;</span><br><span class="line">    this.<span class="built_in">set</span>State(&#123;</span><br><span class="line">        count: this.<span class="keyword">state</span>.count + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    // 异步，拿不到最新的值</span><br><span class="line">    console.<span class="keyword">log</span>(this.<span class="keyword">state</span>.count)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是加上 setTimeout 后，console.log 就可以打印出最新的 state 的值。</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">add = () =&gt; &#123;</span><br><span class="line">    <span class="built_in">set</span>Timeout(() =&gt; &#123;</span><br><span class="line">        this.<span class="built_in">set</span>State(&#123;</span><br><span class="line">            count: this.<span class="keyword">state</span>.count + <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        // 同步，能拿到最新的值</span><br><span class="line">        console.<span class="keyword">log</span>(this.<span class="keyword">state</span>.count)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要了解 setState 背后的原理，我们要先知道 setState 的主流程。如图是 setState 的主流程：</p>
-<p><a href="https://www.z4a.net/image/TGvh5K" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/09/22/a4cb415d5c8bb5c2b7a3338362ac7bed.png" alt="a4cb415d5c8bb5c2b7a3338362ac7bed.png"></a></p>
-<p>dirtyComponents 是 state 已经被更新的 components 的意思。从 setState 的主流程中可以看到，setState 是同步还是异步的关键在于是否命中了 batch update 机制。如果命中了 batch update 机制，则走异步流程，否则，this.setState 则为同步。</p>
-<h3 id="batchUpdate-机制"><a href="#batchUpdate-机制" class="headerlink" title="batchUpdate 机制"></a>batchUpdate 机制</h3><p>React 中 class 中所有函数在开始执行的时候，都是处于 batchUpdate 机制中。React 会在函数执行前设置一个 isBatchingUpdates 为 true 的变量，函数执行完的时候会变为 false。对应之前的代码就是：</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">add = () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 开始：处于batchUpdate</span></span><br><span class="line">    <span class="comment">// isBatchingUpdates = true</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        <span class="keyword">count</span>: <span class="keyword">this</span>.state.<span class="keyword">count</span> + <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 结束</span></span><br><span class="line">    <span class="comment">// isBatchingUpdates = false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">add = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 开始：处于batchUpdate</span></span><br><span class="line">    <span class="comment">// isBatchingUpdates = true</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 此时 isBatchUpdates是false</span></span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 同步，能拿到最新的值</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.state.count)</span><br><span class="line">    )</span><br><span class="line">    <span class="comment">// 结束</span></span><br><span class="line">    <span class="comment">// isBatchingUpdates = false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当 isBatchingUpdates 为 true 时，即代表命中了 batchUpdate 机制，此时的 this.setState 就是一个异步行为。但是，当加上 setTimeout 后，setTimeout 是一个异步的，此时 batchUpdate 机制先把 isBatchingUpdates 变为了 false。之后去执行 setTimeout 的时候，此时的 isBatchingUpdates 已经变为了 false。所以，this.setState 变为了同步。同理，dom 事件中执行回调函数时 isBatchingUpdates 已经变为了 false。</p>
-<p>总结，setState 本身无所谓异步还是同步。关键看是否能命中 batchUpdate 机制。命中 batchUpdate 机制的依据是判断 isBatchingUpdates 是否为 true。<br>一般来说，React 的生命周期函数（和它调用的函数）。React 中注册的事件（和它调用的函数），都能命中 batchUpdate 机制。而 setTimeout、setInterval（和它调用的函数），自定义的 DOM 事件（和它调用的函数）是不能命中 batchUpdate 机制的。</p>
-<h3 id="transaction-事务-机制"><a href="#transaction-事务-机制" class="headerlink" title="transaction(事务)机制"></a>transaction(事务)机制</h3><p>像 batchUpdate 机制这种在函数开始的时候执行一些逻辑，结束的时候执行一些逻辑，就是 transaction 事务机制。React 源码中的注释图比较复杂，其实原理很简单，我们可以简单的模拟一下：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tansaction.initialize = <span class="keyword">function</span>()&#123;</span><br><span class="line">    console.log(<span class="string">'initialize'</span>)</span><br><span class="line">&#125;</span><br><span class="line">tansaction.<span class="keyword">close</span> = <span class="keyword">function</span>()&#123;</span><br><span class="line">    console.log(<span class="string">'close'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="keyword">method</span>()&#123;</span><br><span class="line">    console.log(<span class="string">'abc'</span>)</span><br><span class="line">&#125;</span><br><span class="line">tansaction.<span class="keyword">perform</span>(<span class="keyword">method</span>)</span><br><span class="line"></span><br><span class="line">// 输出结果</span><br><span class="line">// initialize</span><br><span class="line">// abc</span><br><span class="line">// <span class="keyword">close</span></span><br></pre></td></tr></table></figure>
-
-<p>以上就是本篇博客的全部内容。总结：<br>setState 同步还是异步看是否命中了 batchUpdate 机制。</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/21/batchUpdate/" rel="prev" title="React的batchUpdate机制和事务机制">
+      <i class="fa fa-chevron-left"></i> React的batchUpdate机制和事务机制
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://runningjinx.github.io/2020/08/25/performance/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="张大勇">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张大勇">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/performance/" class="post-title-link" itemprop="url">RAIL黄金测量模型及性能优化工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-25 01:25:55" itemprop="dateCreated datePublished" datetime="2020-08-25T01:25:55+08:00">2020-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-28 01:44:37" itemprop="dateModified" datetime="2020-08-28T01:44:37+08:00">2020-08-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RAIL-测量模型以及性能优化的工具"><a href="#RAIL-测量模型以及性能优化的工具" class="headerlink" title="RAIL 测量模型以及性能优化的工具"></a>RAIL 测量模型以及性能优化的工具</h2><p>本文讲述了 RAIL 性能测量模型和常用的网站性能分析工具，分为两个部分：<br>1 RAIL 测量模型<br>2 最简单易用的两种性能测量工具：WebPageTest 和 LightHouse</p>
-<h3 id="RAIL-测量模型"><a href="#RAIL-测量模型" class="headerlink" title="RAIL 测量模型"></a>RAIL 测量模型</h3><p>性能优化是前端一直在谈论的话题。我们都知道要加快首页加载的速度、提高动画的流畅性以及尽快使页面可以交互，但是要加快到什么样的程度才算好呢。谷歌提出了 RAIL 测量模型，可以量化测量性能的标准，告诉了我们优化到了哪种地步才算好（伟大的公司制定标准，手动狗头）。RAIL 每个字母代表一种指标。</p>
-<p>R: Response，响应。响应的标准是处理时间在 50ms 以内完成。谷歌进行了一项用户调查，调查了用户对延迟的容忍度是多少毫秒，得出的结论是用户最高能接受的是 100ms。所以，所有的操作我们都需要在 100ms 以内对用户进行反馈。但是在交互的过程中，用户在完成输入之后，点击确定，浏览器还需要一点时间对事件进行处理。这个时间大约是 50ms，所以留给开发人员的时间是 50ms。</p>
-<p>A: Animation，动画。动画的标准是每 10ms 产生一帧。一秒要有 60 帧，动画才会给人流畅的感觉一帧大约需要 16ms，差出来的 6ms 是留给浏览器绘制这一帧的时间。所以，动画的标准是每 10ms 产生一帧。</p>
-<p>I: Idle，空闲，尽可能给浏览器增加空闲时间。一些业务逻辑运算相关的方面，应该放在后端来做。</p>
-<p>L: Load 加载。在 5s 内完成完成内容加载并可以交互。</p>
-<p>这 4 个指标是终将指标，如果真的能做到上述的标准，那么这个网站可以说是一个完美的网站。但是目前很多的前端项目都达不到这个标准。下面我将介绍两种最简单易用的性能测量工具，希望能帮助大家分析性能，找出问题所在，离完美更近一步。</p>
-<h3 id="性能测量工具"><a href="#性能测量工具" class="headerlink" title="性能测量工具"></a>性能测量工具</h3><p>第一个是 WebpageTest，网址：<a href="https://www.webpagetest.org/" target="_blank" rel="noopener">WebpageTest</a>。</p>
-<p>WebpageTest 十分好用，只需输入网址，就可以模拟测试地点和浏览器类型。点击 Start Test 即可生成一份性能测试报告。在高级设置里，可以设置连接情况，例如使用光纤、DSL、3G、4G。设置测试轮数，例如设置测试 3 轮、9 轮。这里以淘宝为例，选择新加坡的谷歌浏览器，高级设置如下。<br><a href="https://www.z4a.net/image/T8apx2" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/08/25/01.jpg" alt="01.jpg"></a></p>
-<p>生成的报告如下所示。<br><a href="https://www.z4a.net/image/T8azo5" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/08/25/02.jpg" alt="02.jpg"></a></p>
-<p>解读一下这个报告几个比较关键指标的意思。First View 代表第一次访问，Repeat View 代表再次访问。First View 和 Repeat View 指标值之间的差距反映的是我们的缓存做的好坏。First Byte 表示首次获得响应的时间是多少，反映了网络和后台的综合情况。Start Render 代表首屏渲染。尽快看到内容是用户体验的第一步，这个时间越小越好。Speed Index 速度指标，按照测量模型的 5 秒标准，淘宝 2 秒多的时间是完全达标的。还有一个 Blocking Time 也需要我们关注，Blocking 表示页面被阻塞住了，不能交互，这个时间也是越小越好，报告的绿色代表达标。生成的报告中还含有 waterfall chart，感兴趣的同学可以根据请求瀑布图寻找可以优化的点。</p>
-<p>第二个测量工具是 LightHouse。LightHouse 本身的意思是灯塔（这个名字可能在暗示会指引着你的网站做的越来越好，再次狗头）。使用也非常简单，可以直接 npm install -g ligthHouse。安装完毕后，使用“lighthouse + 网址” 就可以进行测试。以 blibli 网站为例，运行命令后，会生成一份 B 站的性能报告地址，如下所示。直接复制在浏览器中打开即 可。<br><a href="https://www.z4a.net/image/T8arMH" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/08/25/03.jpg" alt="03.jpg"></a></p>
-<p>最上面的是 5 个性能指标，性能、可访问性、最佳实践、SEO 以及 PWA。以我们最关心的性能 Performance 为例。下面给出了一些标红的关键指标，First Contentful Paint 表示浏览器第一次绘制内容、Speed Index 速度指标、Largest Contentful Paint 最大的内容绘制、Time to Interactiove 可以进行交互时间。指标下面是 10 张首屏的快照截图。如图所示，10 张中有 7 张是白屏状态，所以首页的渐进化加载 B 站做的并不是很好。<br><a href="https://www.z4a.net/image/T8aqcG" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/08/25/04.jpg" alt="04.jpg"></a></p>
-<p>lightHouse 还会给我们提出一些优化建议，以及做完这些后性能可能会提高多少。如图所示，删除一些无用的 js 代码，性能可以提高 2.21 秒（这里的无用 JS 代码我猜想应该是 B 站首页没有用到，可以考虑延迟加载这些 JS 代码，也有可能是为了访问后面的页面更快）。减少一些阻塞的资源，性能可以提高 1.22 秒。<br><a href="https://www.z4a.net/image/T8aY6h" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2020/08/25/05.jpg" alt="05.jpg"></a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文介绍了谷歌的 RAIL 黄金测量模型和两种常用的性能测量工具：WebpageTest 和 LightHouse。感兴趣的同学可以用这两种工具结合 RAIL 测量模型测试一下自己的网站。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -485,6 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件库的色彩知识？"><span class="nav-number">1.</span> <span class="nav-text">组件库的色彩知识？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件实践之开发一个-Button-组件"><span class="nav-number">1.1.</span> <span class="nav-text">组件实践之开发一个 Button 组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
