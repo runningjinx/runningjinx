@@ -186,7 +186,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-28 15:57:49 / 修改时间：16:00:08" itemprop="dateCreated datePublished" datetime="2020-12-28T15:57:49+08:00">2020-12-28</time>
+              <time title="创建时间：2020-12-28 15:57:49 / 修改时间：16:06:42" itemprop="dateCreated datePublished" datetime="2020-12-28T15:57:49+08:00">2020-12-28</time>
             </span>
 
           
@@ -200,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>10 阶楼梯，每次只能走一步或者两步。总共有多少种做法？</p>
+          <p>10 阶楼梯，每次只能走一步或者两步。总共有多少种走法？</p>
 <p>初次看到这个题目，大部分人可能想的是通过枚举进行暴力求解，列举出所有的方法。其实，这是一个典型的动态规则问题。通过动态规划，我们可以很“优雅”的求解出一共有多少种方法？</p>
 <p>本文包括两部分：</p>
 <ol>
@@ -211,7 +211,7 @@
 <h3 id="动态规划的案例分析及代码实践"><a href="#动态规划的案例分析及代码实践" class="headerlink" title="动态规划的案例分析及代码实践"></a>动态规划的案例分析及代码实践</h3><p>以上面走楼梯的案例为例，假设还差最后一步就能走到第十阶楼梯。那么候选人此时只有两种情况，一种是位于第八阶楼梯，一种是位于第九阶楼梯。假设用 F(x)表示走到第 X 个楼梯总共的方法数量。那么</p>
 <figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">F</span>(<span class="number">10</span>) = <span class="title">F</span>(<span class="number">9</span>) + <span class="title">F</span>(<span class="number">8</span>)</span></span><br></pre></td></tr></table></figure>
 
-<p>同理，假如台阶的数量为 9 个，最后一步，候选人要么走一步，要走两步。我们可以推断出：</p>
+<p>同理，假如台阶的数量为 9 个，最后一步走完 9 个台阶时，候选人要么走一步，要走两步。我们可以推断出：</p>
 <figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">F</span>(<span class="number">9</span>) = <span class="title">F</span>(<span class="number">8</span>) + <span class="title">F</span>(<span class="number">7</span>)</span></span><br><span class="line"><span class="function"><span class="title">F</span>(<span class="number">8</span>) = <span class="title">F</span>(<span class="number">7</span>) + <span class="title">F</span>(<span class="number">6</span>)</span></span><br></pre></td></tr></table></figure>
 
 <p>因此，我们可以从上面总结出规律：</p>
