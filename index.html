@@ -175,7 +175,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/26/i18n/" class="post-title-link" itemprop="url">i18n</a>
+            <a href="/2021/01/26/i18n/" class="post-title-link" itemprop="url">i18n国际化实践</a>
         </h2>
 
         <div class="post-meta">
@@ -186,7 +186,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-26 12:10:37 / 修改时间：12:10:46" itemprop="dateCreated datePublished" datetime="2021-01-26T12:10:37+08:00">2021-01-26</time>
+              <time title="创建时间：2021-01-26 12:10:37 / 修改时间：12:22:27" itemprop="dateCreated datePublished" datetime="2021-01-26T12:10:37+08:00">2021-01-26</time>
             </span>
 
           
@@ -200,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="i18n-国际化实践"><a href="#i18n-国际化实践" class="headerlink" title="i18n 国际化实践"></a>i18n 国际化实践</h1><p>国际化简称 i18n，由英文 internationalization 的首尾字母加中间 18 个字母组成。本文主要记录一次国际化的实践。</p>
+          <p>国际化简称 i18n，由英文 internationalization 的首尾字母加中间 18 个字母组成。本文主要记录一次国际化的实践。</p>
 <p>包括两部分：</p>
 <ol>
 <li>国际化原理</li>
@@ -209,7 +209,8 @@
 <h2 id="国际化原理及-i18next-框架介绍"><a href="#国际化原理及-i18next-框架介绍" class="headerlink" title="国际化原理及 i18next 框架介绍"></a>国际化原理及 i18next 框架介绍</h2><p>国际化的关键原理有三个：</p>
 <ol>
 <li>不同的语言包作为静态资源单独保存，如保存为 xml 或者 josn 文件。</li>
-<li>每个语言对应一个文件。如中文对应一个文件，英文对应一个文件。 1.切换语言设置的时候，语言文件也会随之切换。</li>
+<li>每个语言对应一个文件。如中文对应一个文件，英文对应一个文件。</li>
+<li>切换语言设置的时候，语言文件也会随之切换。</li>
 </ol>
 <p>i18n 是目前主流的国际化框架，支持 react、vue 和 angular。通过简单的配置即可实现前端的国际化。下面将结合 react 和 react-i18next 进行国际化实践。</p>
 <h3 id="国际化代码实践"><a href="#国际化代码实践" class="headerlink" title="国际化代码实践"></a>国际化代码实践</h3><p>首先使用 create-react-app 创建一个简单的 react 的项目。之后，npm 安装 i18n 和 react-i18next。</p>
@@ -231,7 +232,7 @@
 <p>之后，在对应的组件中引入 i18n 的 t 函数，用法 t(“jingyesi.first”)<br>我们在 app.js 中进行实践：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useTranslation &#125; <span class="keyword">from</span> <span class="string">"react-i18next"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; t &#125; = useTranslation();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">      &lt;header className=<span class="string">"App-header"</span>&gt;</span><br><span class="line">        &lt;p&gt;&#123;t(<span class="string">"jingyesi.first"</span>)&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;&#123;t("jingyesi.second")&#125;&lt;/</span>p&gt;</span><br><span class="line">        &lt;p&gt;&#123;t(<span class="string">"jingyesi.third"</span>)&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;&#123;t("jingyesi.fourth")&#125;&lt;/</span>p&gt;</span><br><span class="line">      &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
 
-<p>这样，就实现了中英文的展示。<br><img src="https://pic2.zhimg.com/80/v2-b0512e952a83cf287be84254b83b9cb5_1440w.jpg" alt="image"><br><img src="https://pic2.zhimg.com/80/v2-b0512e952a83cf287be84254b83b9cb5_1440w.jpg" alt="image"></p>
+<p>这样，就实现了中英文的展示。<br><a href="https://www.z4a.net/image/g2fSVH" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2021/01/26/zh.png" alt="zh.png"></a><br><a href="https://www.z4a.net/image/g2f859" target="_blank" rel="noopener"><img src="https://www.z4a.net/images/2021/01/26/en.png" alt="en.png"></a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下，本文两个部分：</p>
 <ol>
 <li>国际化实现原理，关键是构造不同的语言包</li>
